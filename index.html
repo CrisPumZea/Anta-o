@@ -207,7 +207,7 @@
                 <!-- Grid de Días -->
                 <div id="calendar-days" class="grid grid-cols-7 gap-2 text-center text-sm"></div>
 
-                <!-- Modal / Panel de Fecha Seleccionada -->
+                <!-- Panel de Fecha Seleccionada -->
                 <div id="date-action-panel" class="hidden mt-6 p-4 bg-black/60 border border-gold/40 rounded-xl text-center">
                     <p class="text-sm text-gray-300 mb-2">Fecha seleccionada: <strong id="selected-date-display" class="text-gold"></strong></p>
                     <div class="flex flex-wrap justify-center gap-3 mt-3">
@@ -247,7 +247,6 @@
 
     <!-- Lógica JavaScript -->
     <script>
-        // Número de WhatsApp Configurado
         const WHATSAPP_PHONE = "51930743762"; 
 
         let selectedCity = 'Puno';
@@ -266,7 +265,6 @@
             const otherContainer = document.getElementById('other-city-container');
             const durationContainer = document.getElementById('duration-container');
 
-            // Reset estilos
             btnPuno.className = btnJuliaca.className = btnOtro.className = "city-btn p-2.5 rounded-xl border border-white/10 bg-black/40 text-gray-400 font-bold transition text-center hover:border-gold/50 text-sm";
 
             if (city === 'Puno') {
@@ -314,7 +312,6 @@
             document.getElementById('calendar-ws-btn').href = fullUrl;
         }
 
-        // --- Calendario ---
         let currentDate = new Date();
 
         function renderCalendar() {
@@ -369,7 +366,6 @@
             const details = encodeURIComponent("Consulta de disponibilidad y reserva de show musical.");
             const location = encodeURIComponent(selectedCity === 'Otro' ? 'Por definir' : selectedCity);
 
-            // Abre selector de Google Calendar para guardarlo en el calendario que elijas
             const gCalUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${isoDate}/${isoDate}&details=${details}&location=${location}`;
             window.open(gCalUrl, '_blank');
         }
